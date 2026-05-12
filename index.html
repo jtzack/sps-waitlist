@@ -447,12 +447,21 @@
         gap: clamp(8px, 1.4vh, 14px);
         text-align: center;
       }
-      .sps-hero-text { text-align: center; }
+      .sps-hero-text {
+        text-align: center;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .sps-display,
       .sps-lede,
       .sps-sublede,
-      .sps-form-wrap {
-        margin-left: auto;
-        margin-right: auto;
+      .sps-form-wrap,
+      .sps-cd {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
       }
       .sps-form-label { text-align: center; }
       .sps-display {
