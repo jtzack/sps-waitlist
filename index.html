@@ -280,6 +280,17 @@
     }
     .sps-product img:hover { transform: rotate(0deg) scale(1.02); }
 
+    /* Mobile-only inline product render, sits between the two paragraphs */
+    .sps-product-mobile { display: none; }
+    .sps-product-mobile img {
+      display: block;
+      margin: 0 auto;
+      width: clamp(100px, 16vh, 150px);
+      height: auto;
+      transform: rotate(-2deg);
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.35));
+    }
+
     /* ─── KIT FORM OVERRIDES — restyles ConvertKit's injected DOM ─── */
     .sps-form-wrap .formkit-form {
       background: transparent !important;
@@ -426,25 +437,29 @@
       .sps-pulse { width: 6px; height: 6px; }
 
       .sps-product { display: none; }
+      .sps-product-mobile {
+        display: block;
+        margin: clamp(4px, 0.8vh, 10px) 0 clamp(6px, 1vh, 12px);
+      }
 
       .sps-hero-inner {
         padding: clamp(10px, 1.6vh, 18px) 16px clamp(12px, 1.6vh, 20px);
         gap: clamp(8px, 1.4vh, 14px);
       }
       .sps-display {
-        font-size: clamp(26px, 7.6vw, 40px);
+        font-size: clamp(26px, 7.2vw, 38px);
         line-height: 0.96;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
       }
       .sps-lede {
-        font-size: 14px;
-        line-height: 1.45;
-        margin-bottom: 8px;
+        font-size: 13.5px;
+        line-height: 1.4;
+        margin-bottom: 0;
       }
       .sps-sublede {
         font-size: 12.5px;
-        line-height: 1.5;
-        margin-bottom: 12px;
+        line-height: 1.45;
+        margin-bottom: 10px;
       }
 
       .sps-cd { margin-top: 10px; }
@@ -500,10 +515,11 @@
 
     /* Short mobile viewports — iPhone SE etc. */
     @media (max-height: 700px) and (max-width: 640px) {
-      .sps-display { font-size: clamp(24px, 7vw, 34px); }
-      .sps-lede { font-size: 13px; line-height: 1.4; }
-      .sps-sublede { font-size: 12px; line-height: 1.45; }
+      .sps-display { font-size: clamp(22px, 6vw, 30px); }
+      .sps-lede { font-size: 12.5px; line-height: 1.35; }
+      .sps-sublede { font-size: 11.5px; line-height: 1.4; }
       .sps-cd-num { font-size: 18px; }
+      .sps-product-mobile img { width: clamp(80px, 12vh, 110px); }
     }
   </style>
 </head>
@@ -539,6 +555,10 @@
           <p class="sps-lede">
             I&rsquo;ve sold <strong>tens of thousands of books</strong> worldwide and generated <strong>$500K+ in royalties</strong> writing non-fiction&mdash;now I want to help you do the same.
           </p>
+
+          <aside class="sps-product-mobile" aria-hidden="true">
+            <img src="assets/product-render.png" alt="" />
+          </aside>
 
           <p class="sps-sublede">
             And on <strong>Monday, June 1st</strong>, we&rsquo;re launching <strong>Self-Publishing Studio</strong>: a 2-week live program to help you write, publish, and market a non-fiction book that builds your business.
