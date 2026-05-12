@@ -148,29 +148,44 @@
       align-items: center;
     }
 
-    /* ─── EYEBROW ─── */
-    .sps-eyebrow {
-      font: 700 12px/1 var(--font-sans);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--butter-500);
-      margin-bottom: clamp(10px, 1.6vh, 18px);
-    }
-
-    /* ─── DISPLAY HEADLINE ─── */
+    /* ─── DISPLAY HEADLINE — three tiers, "write a non-fiction book" pops ─── */
     .sps-display {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: clamp(34px, 5.4vw, 76px);
-      line-height: 0.92;
+      font-size: clamp(26px, 4vw, 56px);
+      line-height: 0.94;
       letter-spacing: -0.005em;
       text-transform: uppercase;
-      color: var(--butter-500);
+      color: var(--paper-100);
       margin: 0 0 clamp(10px, 1.8vh, 20px);
       text-wrap: balance;
     }
-    .sps-display .ink { color: var(--paper-100); }
-    .sps-display .accent { color: var(--butter-500); }
+    .sps-display .lead,
+    .sps-display .pop,
+    .sps-display .tail { display: block; }
+    .sps-display .lead {
+      font-size: 0.62em;
+      color: var(--ink-200);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.06em;
+    }
+    .sps-display .pop {
+      font-size: 1.55em;
+      color: var(--butter-500);
+      line-height: 0.9;
+      letter-spacing: -0.012em;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    }
+    .sps-display .tail {
+      font-size: 0.72em;
+      color: var(--paper-100);
+      margin-top: 0.14em;
+      letter-spacing: 0.005em;
+    }
+    .sps-display .hilite {
+      color: var(--butter-500);
+      font-style: italic;
+    }
 
     /* ─── LEDE ─── */
     .sps-lede {
@@ -441,16 +456,14 @@
         padding: clamp(10px, 1.6vh, 18px) 16px clamp(12px, 1.6vh, 20px);
         gap: clamp(8px, 1.4vh, 14px);
       }
-      .sps-eyebrow {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        margin-bottom: 10px;
-      }
       .sps-display {
-        font-size: clamp(26px, 7.6vw, 40px);
+        font-size: clamp(20px, 5.6vw, 30px);
         line-height: 0.96;
         margin-bottom: 10px;
       }
+      .sps-display .lead { font-size: 0.7em; }
+      .sps-display .pop { font-size: 1.6em; }
+      .sps-display .tail { font-size: 0.78em; }
       .sps-lede {
         font-size: 14px;
         line-height: 1.45;
@@ -506,7 +519,7 @@
         padding: 14px 32px;
         gap: 28px;
       }
-      .sps-display { font-size: clamp(32px, 4.6vw, 60px); }
+      .sps-display { font-size: clamp(24px, 3.4vw, 44px); }
       .sps-lede { font-size: 15px; margin-bottom: 10px; }
       .sps-sublede { font-size: 13.5px; margin-bottom: 14px; }
       .sps-cd { margin-top: 12px; }
@@ -515,7 +528,7 @@
 
     /* Short mobile viewports — iPhone SE etc. */
     @media (max-height: 700px) and (max-width: 640px) {
-      .sps-display { font-size: clamp(24px, 7vw, 34px); }
+      .sps-display { font-size: clamp(18px, 5vw, 26px); }
       .sps-lede { font-size: 13px; line-height: 1.4; }
       .sps-sublede { font-size: 12px; line-height: 1.45; }
       .sps-cd-num { font-size: 18px; }
@@ -547,10 +560,10 @@
       <div class="sps-hero-inner">
 
         <section class="sps-hero-text">
-          <div class="sps-eyebrow">A digital course by Dickie Bush &amp; Nicolas Cole</div>
-
           <h1 class="sps-display">
-            Want to write a non-fiction book that pays you for the <span class="accent">next 10 years</span>?
+            <span class="lead">Want to</span>
+            <span class="pop">Write a non-fiction book</span>
+            <span class="tail">that pays you for the <span class="hilite">next 10 years</span>?</span>
           </h1>
 
           <p class="sps-lede">
