@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self-Publishing Studio — Waitlist</title>
+  <meta name="description" content="The complete system for writing, publishing, and marketing a non-fiction book that builds your business. A digital course by Dickie Bush & Nicolas Cole. Join the waitlist." />
+  <meta property="og:title" content="Self-Publishing Studio — Waitlist" />
+  <meta property="og:description" content="Write, publish, and sell your book — in 90 days, not 9 years. A digital course by Dickie Bush & Nicolas Cole." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/bookshelf-mark.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Ink — navy / dark surfaces */
+      --ink-950: #08111F;
+      --ink-900: #0C1929;
+      --ink-800: #142539;
+      --ink-700: #1E3550;
+      --ink-600: #2A4566;
+      --ink-500: #3E5C82;
+      --ink-400: #5A78A0;
+      --ink-300: #8AA0C0;
+      --ink-200: #B5C4D9;
+      --ink-100: #DDE5F0;
+
+      /* Butter — primary brand yellow */
+      --butter-700: #B8A648;
+      --butter-600: #D8C25A;
+      --butter-500: #EFE183;
+      --butter-400: #F4E89A;
+      --butter-300: #F8F0B8;
+
+      /* Paper — warm off-white */
+      --paper-100: #FBF7EC;
+      --paper-200: #F5EEDA;
+      --paper-300: #ECE2C2;
+
+      /* Accent */
+      --rust-500: #B8633A;
+
+      /* Type stack */
+      --font-display: "Anton", "Bebas Neue", "Impact", system-ui, sans-serif;
+      --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+      --font-serif:   "Newsreader", "Iowan Old Style", Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    ::selection { background: var(--butter-500); color: var(--ink-900); }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--ink-900);
+      color: var(--paper-100);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* ─── SHELL ─── */
+    .sps-root {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: var(--ink-900);
+    }
+
+    /* ─── TOP NAV ─── */
+    .sps-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--ink-900);
+      border-bottom: 1px solid var(--ink-700);
+      flex: 0 0 auto;
+    }
+    .sps-nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 14px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    .sps-brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .sps-brand-mark {
+      width: 34px; height: 34px;
+      border-radius: 2px;
+      display: block;
+    }
+    .sps-brand-word {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.02em;
+      color: var(--butter-500);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .sps-nav-status {
+      display: inline-flex; align-items: center; gap: 10px;
+      font: 700 12px/1 var(--font-sans);
+      letter-spacing: 0.08em;
+      color: var(--paper-200);
+      text-transform: uppercase;
+    }
+    .sps-pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--butter-500);
+      box-shadow: 0 0 10px var(--butter-500);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+
+    /* ─── HERO ─── */
+    .sps-hero {
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+      background: var(--ink-900);
+    }
+    .sps-hero-texture {
+      position: absolute; inset: 0;
+      background: url('assets/book-pattern.svg') center/600px repeat;
+      opacity: 0.4;
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%);
+              mask-image: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .sps-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      padding: clamp(48px, 7vw, 88px) 32px clamp(56px, 8vw, 96px);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* ─── EYEBROW ─── */
+    .sps-eyebrow {
+      font: 700 12px/1 var(--font-sans);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin-bottom: 28px;
+    }
+
+    /* ─── DISPLAY HEADLINE ─── */
+    .sps-display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(56px, 10vw, 148px);
+      line-height: 0.88;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--butter-500);
+      margin: 0 0 24px;
+      text-wrap: balance;
+    }
+    .sps-display .ink { color: var(--paper-100); }
+
+    /* ─── LEDE ─── */
+    .sps-lede {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 1.7vw, 22px);
+      line-height: 1.55;
+      color: var(--paper-200);
+      max-width: 540px;
+      margin: 0 0 32px;
+      text-wrap: pretty;
+    }
+    .sps-lede em {
+      font-style: italic;
+      color: var(--butter-500);
+    }
+    .sps-lede strong {
+      color: var(--paper-100);
+      font-weight: 600;
+    }
+
+    /* ─── FORM ─── */
+    .sps-form-wrap { max-width: 540px; }
+    .sps-form-label {
+      font: 700 11px/1 var(--font-sans);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-300);
+      margin-bottom: 12px;
+    }
+
+    /* ─── FINE PRINT ─── */
+    .sps-fineprint {
+      margin-top: 18px;
+      font: 600 13px/1.4 var(--font-sans);
+      letter-spacing: 0.02em;
+      color: var(--ink-300);
+      max-width: 540px;
+    }
+    .sps-fineprint .accent { color: var(--butter-500); }
+
+    /* ─── PROOF LINE ─── */
+    .sps-proof {
+      margin-top: 28px;
+      font: 600 13px/1 var(--font-sans);
+      letter-spacing: 0.02em;
+      color: var(--ink-300);
+    }
+    .sps-proof strong { color: var(--paper-100); font-weight: 700; }
+
+    /* ─── RIGHT COLUMN: PRODUCT RENDER ─── */
+    .sps-product {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .sps-product img {
+      max-width: 100%;
+      width: 380px;
+      height: auto;
+      filter: drop-shadow(20px 30px 40px rgba(0,0,0,0.6));
+      transform: rotate(-2deg);
+      transition: transform 280ms cubic-bezier(.16,.84,.36,1);
+    }
+    .sps-product img:hover { transform: rotate(0deg) scale(1.02); }
+
+    /* ─── KIT FORM OVERRIDES — restyles ConvertKit's injected DOM ─── */
+    .sps-form-wrap .formkit-form {
+      background: transparent !important;
+      border: 1px solid rgba(240,228,208,0.18);
+      border-radius: 3px;
+      padding: 6px;
+      transition: border-color 200ms;
+      max-width: 540px;
+      margin: 0;
+    }
+    .sps-form-wrap .formkit-form:focus-within {
+      border-color: var(--butter-500);
+    }
+
+    /* Reset CK's inner clean-style padding */
+    .sps-form-wrap .formkit-form[data-uid="77c222d114"][min-width~="700"] [data-style="clean"],
+    .sps-form-wrap .formkit-form[data-uid="77c222d114"][min-width~="800"] [data-style="clean"],
+    .sps-form-wrap .formkit-form [data-style="clean"] {
+      padding: 0 !important;
+    }
+
+    /* Stack input above button */
+    .sps-form-wrap .formkit-form .formkit-fields {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 6px !important;
+      margin: 0 !important;
+    }
+    .sps-form-wrap .formkit-form .formkit-field,
+    .sps-form-wrap .formkit-form .formkit-submit,
+    .sps-form-wrap .formkit-form[data-uid="77c222d114"][min-width~="700"] .formkit-fields[data-stacked="false"] .formkit-field,
+    .sps-form-wrap .formkit-form[data-uid="77c222d114"][min-width~="800"] .formkit-fields[data-stacked="false"] .formkit-field,
+    .sps-form-wrap .formkit-form[data-uid="77c222d114"][min-width~="700"] .formkit-fields[data-stacked="false"] .formkit-submit,
+    .sps-form-wrap .formkit-form[data-uid="77c222d114"][min-width~="800"] .formkit-fields[data-stacked="false"] .formkit-submit {
+      flex: 1 0 100% !important;
+      width: 100% !important;
+      margin: 0 !important;
+      min-width: 0;
+    }
+
+    /* Email input — transparent on the wrapper, paper text */
+    .sps-form-wrap .formkit-form .formkit-input {
+      background: var(--ink-900) !important;
+      border: 1px solid var(--ink-700) !important;
+      outline: none !important;
+      box-shadow: none !important;
+      font-family: var(--font-sans) !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      padding: 16px 18px !important;
+      color: var(--paper-100) !important;
+      width: 100% !important;
+      border-radius: 3px !important;
+      letter-spacing: 0 !important;
+      transition: border-color 180ms;
+    }
+    .sps-form-wrap .formkit-form .formkit-input::placeholder {
+      color: var(--ink-400) !important;
+      opacity: 1 !important;
+    }
+    .sps-form-wrap .formkit-form .formkit-input:focus {
+      border-color: var(--butter-500) !important;
+      outline: none !important;
+    }
+
+    /* Submit — primary brand button (butter, hard cast shadow) */
+    .sps-form-wrap .formkit-form .formkit-submit {
+      background: var(--butter-500) !important;
+      color: var(--ink-900) !important;
+      border: none !important;
+      border-radius: 3px !important;
+      font-family: var(--font-sans) !important;
+      font-weight: 700 !important;
+      font-size: 14px !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      cursor: pointer;
+      box-shadow: 6px 6px 0 var(--ink-950) !important;
+      transition: transform 120ms cubic-bezier(.16,.84,.36,1),
+                  box-shadow 120ms cubic-bezier(.16,.84,.36,1),
+                  background-color 180ms;
+      overflow: hidden;
+    }
+    .sps-form-wrap .formkit-form .formkit-submit > span {
+      padding: 18px 24px !important;
+      white-space: nowrap;
+      display: block;
+    }
+    .sps-form-wrap .formkit-form .formkit-submit:hover {
+      background: var(--butter-400) !important;
+      color: var(--ink-900) !important;
+    }
+    .sps-form-wrap .formkit-form .formkit-submit:hover > span {
+      background-color: transparent !important;
+    }
+    .sps-form-wrap .formkit-form .formkit-submit:active {
+      transform: translate(2px, 2px);
+      box-shadow: 4px 4px 0 var(--ink-950) !important;
+    }
+
+    /* Hide ConvertKit "Built with Kit" badge */
+    .formkit-powered-by-convertkit-container,
+    .formkit-powered-by-convertkit { display: none !important; }
+
+    /* Error alert — match palette */
+    .sps-form-wrap .formkit-form .formkit-alert {
+      margin: 0 0 10px !important;
+      font-size: 13px;
+      background: rgba(197, 82, 62, 0.12) !important;
+      border-color: var(--rust-500) !important;
+      color: var(--paper-100) !important;
+      border-radius: 3px !important;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    /* Tablet — stack columns, image moves below text */
+    @media (max-width: 960px) {
+      .sps-nav-inner { padding: 12px 24px; }
+      .sps-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 48px 24px 56px;
+        text-align: left;
+      }
+      .sps-product { order: -1; }
+      .sps-product img { width: 280px; }
+      .sps-lede { max-width: 100%; }
+      .sps-form-wrap { max-width: 100%; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .sps-nav-inner { padding: 10px 16px; gap: 8px; }
+      .sps-brand-word { font-size: 17px; }
+      .sps-brand-mark { width: 28px; height: 28px; }
+      .sps-nav-status {
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        gap: 6px;
+      }
+      .sps-pulse { width: 6px; height: 6px; }
+
+      .sps-hero-inner {
+        padding: 32px 18px 40px;
+        gap: 28px;
+      }
+      .sps-eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        margin-bottom: 18px;
+      }
+      .sps-display {
+        font-size: clamp(40px, 12vw, 64px);
+        margin-bottom: 18px;
+      }
+      .sps-lede {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+      .sps-product img { width: 220px; }
+
+      .sps-form-wrap .formkit-form { padding: 5px; }
+      .sps-form-wrap .formkit-form .formkit-input {
+        font-size: 15px !important;
+        padding: 14px 16px !important;
+      }
+      .sps-form-wrap .formkit-form .formkit-submit {
+        font-size: 12px !important;
+        letter-spacing: 0.08em !important;
+        box-shadow: 4px 4px 0 var(--ink-950) !important;
+      }
+      .sps-form-wrap .formkit-form .formkit-submit > span {
+        padding: 16px 12px !important;
+      }
+      .sps-form-wrap .formkit-form .formkit-submit:active {
+        box-shadow: 2px 2px 0 var(--ink-950) !important;
+      }
+    }
+
+    /* Hide the live-status chip if the viewport is too narrow */
+    @media (max-width: 420px) {
+      .sps-nav-status span:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sps-root">
+
+    <!-- ═══════════════ NAV ═══════════════ -->
+    <header class="sps-nav">
+      <div class="sps-nav-inner">
+        <a href="#" class="sps-brand" aria-label="Self-Publishing Studio">
+          <img src="assets/bookshelf-mark.svg" alt="" class="sps-brand-mark" width="34" height="34" />
+          <span class="sps-brand-word">Self-Publishing Studio</span>
+        </a>
+        <div class="sps-nav-status">
+          <span class="sps-pulse" aria-hidden="true"></span>
+          <span>Waitlist · Enrollment opens soon</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <main class="sps-hero">
+      <div class="sps-hero-texture" aria-hidden="true"></div>
+
+      <div class="sps-hero-inner">
+
+        <section class="sps-hero-text">
+          <div class="sps-eyebrow">A digital course by Dickie Bush &amp; Nicolas Cole</div>
+
+          <h1 class="sps-display">
+            Write,<br/>publish,<br/>and sell<br/><span class="ink">your book.</span>
+          </h1>
+
+          <p class="sps-lede">
+            The complete system for writing, publishing, and marketing a
+            non-fiction book that builds your business &mdash; in <em>90 days</em>, not 9 years.
+          </p>
+
+          <!-- ── Kit (ConvertKit) Form ── -->
+          <div class="sps-form-wrap">
+            <div class="sps-form-label">— Get on the waitlist —</div>
+            <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+            <form action="https://app.kit.com/forms/9431878/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9431878" data-uid="77c222d114" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;redirect&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;https://sps-thank-you.vercel.app/&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800"><div data-style="clean"><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul><div data-element="fields" data-stacked="false" class="seva-fields formkit-fields"><div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email"></div><button data-element="submit" class="formkit-submit formkit-submit"><div class="formkit-spinner"><div></div><div></div><div></div></div><span class="">Join the Self-Publishing Studio Waitlist</span></button></div><div class="formkit-powered-by-convertkit-container"><a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a></div></div></form>
+
+            <p class="sps-fineprint">
+              <span class="accent">●</span>&nbsp; Waitlist members get <strong style="color:var(--butter-500)">early access</strong> and exclusive bonuses when enrollment opens.
+            </p>
+          </div>
+
+          <div class="sps-proof">
+            Join <strong>2,400+ writers</strong> who have shipped a book through the studio.
+          </div>
+        </section>
+
+        <!-- ── Right column: product render ── -->
+        <aside class="sps-product" aria-hidden="true">
+          <img src="assets/product-render.png" alt="Self-Publishing Studio course box" width="380" />
+        </aside>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>
