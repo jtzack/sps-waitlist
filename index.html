@@ -407,50 +407,29 @@
     }
 
     /* ─── RESPONSIVE ─── */
-    /* Tablet — stack columns, image becomes a smaller flourish */
+    /* Tablet portrait + mobile — single centered column, product sits
+       inline between the two paragraphs. Tablet horizontal (≥961px)
+       keeps the desktop two-column layout. */
     @media (max-width: 960px) {
       .sps-nav-inner { padding: 10px 24px; }
       .sps-hero-inner {
         grid-template-columns: 1fr;
         gap: clamp(12px, 2vh, 24px);
         padding: clamp(14px, 2.5vh, 28px) 24px clamp(16px, 2.5vh, 28px);
-        text-align: left;
+        text-align: center;
         align-content: center;
+        justify-items: center;
       }
-      .sps-product { order: -1; justify-content: flex-start; }
-      .sps-product img { width: clamp(140px, 22vh, 220px); }
-      .sps-lede { max-width: 100%; }
-      .sps-sublede { max-width: 100%; }
-      .sps-form-wrap { max-width: 100%; }
-    }
-
-    /* Mobile — drop the product image, tighten everything */
-    @media (max-width: 640px) {
-      .sps-nav-inner { padding: 8px 16px; gap: 8px; }
-      .sps-brand-word { font-size: 16px; }
-      .sps-brand-mark { width: 26px; height: 26px; }
-      .sps-nav-status {
-        font-size: 10px;
-        letter-spacing: 0.06em;
-        gap: 6px;
-      }
-      .sps-pulse { width: 6px; height: 6px; }
-
       .sps-product { display: none; }
       .sps-product-mobile {
         display: block;
-        margin: clamp(4px, 0.8vh, 10px) 0 clamp(6px, 1vh, 12px);
+        margin: clamp(6px, 1vh, 14px) 0 clamp(8px, 1.2vh, 16px);
       }
-
-      .sps-hero-inner {
-        padding: clamp(10px, 1.6vh, 18px) 16px clamp(12px, 1.6vh, 20px);
-        gap: clamp(8px, 1.4vh, 14px);
-        text-align: center;
-      }
+      .sps-product-mobile img { width: clamp(140px, 22vh, 200px); }
       .sps-hero-text {
         text-align: center;
         width: 100%;
-        max-width: 360px;
+        max-width: clamp(360px, 70vw, 500px);
         margin: 0 auto;
       }
       .sps-display,
@@ -463,25 +442,49 @@
         margin-left: 0;
         margin-right: 0;
       }
+      .sps-display {
+        text-wrap: wrap;
+      }
       .sps-form-label { text-align: center; }
+    }
+
+    /* Mobile — tighter typography for phones, narrower column */
+    @media (max-width: 640px) {
+      .sps-nav-inner { padding: 8px 16px; gap: 8px; }
+      .sps-brand-word { font-size: 16px; }
+      .sps-brand-mark { width: 26px; height: 26px; }
+      .sps-nav-status {
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        gap: 6px;
+      }
+      .sps-pulse { width: 6px; height: 6px; }
+
+      .sps-product-mobile {
+        margin: clamp(4px, 0.8vh, 10px) 0 clamp(6px, 1vh, 12px);
+      }
+      .sps-product-mobile img { width: clamp(100px, 16vh, 150px); }
+
+      .sps-hero-inner {
+        padding: clamp(10px, 1.6vh, 18px) 16px clamp(12px, 1.6vh, 20px);
+        gap: clamp(8px, 1.4vh, 14px);
+      }
+      .sps-hero-text { max-width: 360px; }
       .sps-display {
         font-size: clamp(20px, 5.6vw, 28px);
         line-height: 1;
         margin-bottom: 8px;
-        text-wrap: wrap;
         letter-spacing: -0.01em;
       }
       .sps-lede {
         font-size: 13.5px;
         line-height: 1.4;
         margin-bottom: 0;
-        text-wrap: wrap;
       }
       .sps-sublede {
         font-size: 12.5px;
         line-height: 1.45;
         margin-bottom: 10px;
-        text-wrap: wrap;
       }
 
       .sps-cd { margin-top: 10px; }
